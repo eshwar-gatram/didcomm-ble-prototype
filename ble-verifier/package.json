@@ -13,9 +13,9 @@
   "author": "Robert Bosch GmbH",
   "license": "Apache-2.0",
   "dependencies": {
-    "@abandonware/bleno": "^0.5.1-4",
+    "@abandonware/bleno": "^0.6.1",
     "@abandonware/bluetooth-hci-socket": "^0.5.3-7",
-    "@abandonware/noble": "1.9.2-15",
+    "@abandonware/noble": "1.9.2-24",
     "@aries-framework/core": "^0.3.3",
     "@aries-framework/node": "^0.3.3",
     "@types/ws": "^8.5.4",
