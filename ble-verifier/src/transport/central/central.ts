@@ -123,12 +123,12 @@ export class TransportCentral {
                     writeCharacteristic: writeCharacteristic!,
                   })
                   // Timeout for response
-                  let readTimeout = setTimeout(() => {
-                    logger.debug("waited 10 seconds for incoming messages, closing connection")
-                    readCharacteristic?.removeAllListeners
-                    connectedDevices.delete(deviceUUID)
-                    _cancel()
-                  }, timeoutResponse, 'BLE Device response timeout');
+                  // let readTimeout = setTimeout(() => {
+                  //   logger.debug("waited 10 seconds for incoming messages, closing connection")
+                  //   readCharacteristic?.removeAllListeners
+                  //   connectedDevices.delete(deviceUUID)
+                  //   _cancel()
+                  // }, timeoutResponse, 'BLE Device response timeout');
                   // React on events
                   readCharacteristic?.on('read', (_: Buffer, isNotification: boolean) => {
                     if(isNotification){
