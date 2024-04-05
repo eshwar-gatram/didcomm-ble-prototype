@@ -15,8 +15,8 @@ import { Config } from './utils/config'
 import { BleTransport } from './transport/BLETransport'
 import { TestLogger } from './utils/logger'
 import * as utils from './utils/utils'
-import { Controller } from './controller/controller'
-import * as mqtt from 'mqtt'
+// import { Controller } from './controller/controller'
+// import * as mqtt from 'mqtt'
 
 const logger = new TestLogger(process.env.NODE_ENV ? LogLevel.error : LogLevel.debug)
 
@@ -137,26 +137,26 @@ const run = async () => {
 
   await agent.initialize()
 
-  // MQTT Client
-  const mqttClientOptions: mqtt.IClientOptions = {
-    // Clean session
-    clean: true,
-    connectTimeout: 4000,
-    // Authentication
-    clientId: 'BLE-Prototype',
-    // Trying to reconnect
-    reconnectPeriod: 3000,
-  }
+  // // MQTT Client
+  // const mqttClientOptions: mqtt.IClientOptions = {
+  //   // Clean session
+  //   clean: true,
+  //   connectTimeout: 4000,
+  //   // Authentication
+  //   clientId: 'BLE-Prototype',
+  //   // Trying to reconnect
+  //   reconnectPeriod: 3000,
+  // }
 
-  const mqttClient: mqtt.MqttClient = mqtt.connect(config.mqtt.broker, mqttClientOptions)
-  mqttClient.on('connect', function () {
-    logger.debug("MQTT connected")
-  })
+  // const mqttClient: mqtt.MqttClient = mqtt.connect(config.mqtt.broker, mqttClientOptions)
+  // mqttClient.on('connect', function () {
+  //   logger.debug("MQTT connected")
+  // })
 
 
-  // Register business logic
-  let proof = config.proof;
-  new Controller(logger, agent, proof, mqttClient, config.mqtt.topic);
+  // // Register business logic
+  // let proof = config.proof;
+  // new Controller(logger, agent, proof, mqttClient, config.mqtt.topic);
 
   // Admin webservice 
   const webserver = new AdminWebServer(logger, agent);
