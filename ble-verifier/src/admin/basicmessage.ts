@@ -17,7 +17,7 @@ export class AdminBasicMessage implements AdminRoute{
 
   register(express: Express): void {
     this.logger.debug('registering route for connection invitations')
-    express.post('/basic-meassage',(req:Request,res:Response)=>{
+    express.post('/basic-message',(req:Request,res:Response)=>{
       const{conn_id,msg}= req.body
       const basicMsg=this.agent.basicMessages.sendMessage(conn_id,msg)
 
