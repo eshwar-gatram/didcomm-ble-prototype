@@ -110,7 +110,7 @@ export class TransportPeripheral {
         Bleno.stopAdvertising(() => { });
       }
     });
-
+    
     Bleno.on('advertisingStart', (error?: Error | null) => {
       if (!error) {
         Bleno.setServices(
@@ -119,6 +119,10 @@ export class TransportPeripheral {
         );
       }
     });
+
+    Bleno.on('advertisingStartError',(err)=>{
+      console.log(`advertising Error:- ${err.stack}`)
+    })
   }
 
   public getDeviceID(): Promise<string> {
