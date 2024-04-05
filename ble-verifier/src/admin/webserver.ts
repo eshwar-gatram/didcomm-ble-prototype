@@ -10,6 +10,7 @@ import type { AdminRoute } from './route'
 import { AdminReceiveInvitation } from './receiveinvitation'
 import { AdminConnections } from './connections'
 import { AdminCreateInvitation } from './createinvitation'
+import { AdminBasicMessage } from './basicmessage'
 
 
 export class AdminWebServer {
@@ -33,6 +34,8 @@ export class AdminWebServer {
     this.registerRoute(createInvitation)
     const connections = new AdminConnections(logger, agent)
     this.registerRoute(connections)
+    const basicMsg= new AdminBasicMessage(logger,agent)
+    this.registerRoute(basicMsg)
   }
 
   public registerRoute(route: AdminRoute) {
